@@ -1,6 +1,7 @@
 // vite.config.ts
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import nodePolyfills from 'rollup-plugin-node-polyfills';
 
 export default defineConfig({
   plugins: [react()],
@@ -9,12 +10,11 @@ export default defineConfig({
     allowedHosts: ["localhost"],
   },
   define: {
-    global: 'globalThis', // Важно для некоторых пакетов
+    global: 'globalThis',
   },
   resolve: {
     alias: {
-      // Polyfill для Buffer
-      buffer: 'buffer/',
+      buffer: 'buffer',
     },
   },
   optimizeDeps: {
@@ -30,17 +30,7 @@ export default defineConfig({
         },
       },
       plugins: [
-        // Необязательный фикс, если будет ошибка с Buffer.Buffer
-        // {
-        //   name: 'buffer-fix',
-        //   generateBundle() {
-        //     this.emitFile({
-        //       type: 'asset',
-        //       fileName: 'buffer-polyfill.js',
-        //       source: 'window.Buffer = window.Buffer || require("buffer").Buffer;',
-        //     });
-        //   },
-        // },
+        nodePolyfills({ buffer: true }), // ← Ключевая строка
       ],
     },
   },
