@@ -7,7 +7,7 @@ export default function PrivyWalletProvider({ children }: { children: React.Reac
       appId="cmjh3wc2w01hpjv0ct8ex2f0l"
       config={{
         // Методы логина: email, Google, Twitter (X), wallet
-        loginMethods: ['email', 'google', 'twitter', 'wallet'],
+        loginMethods: ['wallet'],
 
         // Поддерживаемая цепь — только Sepolia
         supportedChains: [
