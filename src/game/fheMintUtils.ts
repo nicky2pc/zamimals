@@ -66,7 +66,6 @@ const CONTRACT_ABI = [
   "function mintWithConfidentialScore(address to, string memory uri, bytes32 encryptedScore, bytes calldata inputProof) external"
 ];
 
-// ТОЧНО ТЕ ЖЕ КОНВЕРТЕРЫ из твоего рабочего CLI, но без Buffer (для браузера)
 function toBytes32(handle: any): string {
   if (typeof handle === 'string' && handle.startsWith('0x') && handle.length === 66) {
     return handle;
@@ -80,11 +79,11 @@ function toBytes32(handle: any): string {
   } else if (typeof handle === 'object' && handle !== null) {
     const keys = Object.keys(handle).map(k => parseInt(k)).sort((a, b) => a - b);
     if (keys.length !== 32 || keys[0] !== 0 || keys[31] !== 31) {
-      throw new Error('Object must represent exactly 32 consecutive bytes (0..31)');
+      throw new Error('Object must represent 32 consecutive bytes');
     }
     bytes = keys.map(k => handle[k]);
   } else {
-    throw new Error('Cannot convert to bytes32: unsupported type');
+    throw new Error('Unsupported handle type for bytes32');
   }
 
   // Ручная конвертация в hex без Buffer
@@ -104,7 +103,7 @@ function toBytes(proof: any): string {
     const keys = Object.keys(proof).map(k => parseInt(k)).sort((a, b) => a - b);
     bytes = keys.map(k => proof[k]);
   } else {
-    throw new Error('Cannot convert proof to bytes: unsupported type');
+    throw new Error('Unsupported proof type');
   }
 
   return '0x' + bytes.map(b => b.toString(16).padStart(2, '0')).join('');

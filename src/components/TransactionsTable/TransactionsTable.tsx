@@ -10,7 +10,7 @@ const TransactionsTable: React.FC<TransactionsTableProps> = ({ transactions, cle
   const { handleFaucet } = useTransactions();
   const { wallets } = useWallets();
 
-  const CONTRACT_EXPLORER_URL = 'https://sepolia.etherscan.io/address/0xad5273BDbE37b1b993101ee04E794e5Bc6911546';
+  const CONTRACT_EXPLORER_URL = 'https://sepolia.etherscan.io/address/0x7e6114bAB8ADf97d88e028697a9D0CF11A6af9e0';
 
   const handleInteractiveLink = (e: React.MouseEvent<HTMLTableElement>) => {
     const target = e.target as HTMLElement;
