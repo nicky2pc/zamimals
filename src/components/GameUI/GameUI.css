@@ -1,0 +1,54 @@
+.game-ui-list {
+  position: absolute;
+  top: 0;
+  left: -120px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.game-ui {
+  color: #f6ffa4;
+  font-family: 'Orbitron', system-ui;
+  z-index: 1;
+  background: rgba(27, 27, 27, 0.8);
+  padding: 8px 12px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: 1px solid rgba(246, 255, 164, 0.3);
+  box-shadow: 0 0 15px rgba(246, 255, 164, 0.2);
+  transition: all 0.3s ease;
+}
+
+.game-ui:hover {
+  background: rgba(27, 27, 27, 0.95);
+  box-shadow: 0 0 25px rgba(246, 255, 164, 0.4);
+  transform: scale(1.02);
+}
+
+.game-ui-list-bottom {
+  top: 0;
+  right: -250px;
+  left: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.ui-counter {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.counter-label {
+  font-weight: bold;
+}
+
+.counter-value {
+  color: #f6ffa4;
+  font-size: 1.2em;
+  text-shadow: 0 0 10px rgba(246, 255, 164, 0.5);
+  font-family: 'Space Mono', monospace;
+}

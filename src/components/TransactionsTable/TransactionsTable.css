@@ -1,0 +1,98 @@
+.transactions {
+  margin: 20px auto;
+  padding-bottom: 50px;
+}
+
+.transactions .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.transactions h2 {
+  font-size: 42px;
+  margin: 0;
+  color: #f6ffa4;
+}
+
+.transactions-table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  color: #07192e;
+  font-weight: 500;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.transactions-table th,
+.transactions-table td {
+  padding: 12px;
+  text-align: left;
+  max-width: 604px;
+}
+
+.table-wrapper {
+  background-color: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.transactions-table th {
+  font-weight: bold;
+  color: #f6ffa4;
+}
+
+tr {
+  color: white;
+}
+
+.transactions-table a {
+  color: #FFA500;           /* было #8f54fd → теперь оранжево-жёлтый */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.transactions-table a:hover {
+  text-decoration: underline;
+}
+
+.transactions-table th {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.transactions-table tr[datatype="Kill"] {
+  background: rgb(237 240 178 / 15%)      /* зелёный оставил как был */
+}
+
+.transactions-table tr[datatype="Death"] {
+  background: rgba(255, 132, 0, 0.15);      /* был фиолетовый → теперь тёмно-жёлтый/золотой */
+}
+
+.transactions-table tr[datatype="Faucet"] {
+  background: rgba(255, 220, 0, 0.3);       /* был бледно-жёлтый → чуть ярче */
+}
+
+.transactions-table th,
+.transactions-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.clear-btn {
+  background-color: #f6ffa4;     /* было #7663e0 */
+  color: #1b1b1b;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+}
+
+.clear-btn:hover {
+  background-color: transparent;     /* было #9483f0 → теперь яркий оранжево-жёлтый */
+  color: #f6ffa4;
+  transform: scale(1.05);
+}
