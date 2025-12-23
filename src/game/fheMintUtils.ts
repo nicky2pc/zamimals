@@ -147,7 +147,7 @@ export async function mintConfidentialNFT(
       onProgress?.('⛽ Оцениваем gas...');
       const estimated = await contract.mintWithConfidentialScore.estimateGas(
         userAddress,
-        `ipfs://trophy/${score}`,
+        `ipfs://bafybeif4pjtchxcmndfr2aqcalblp5go36e7ndb6kasjtrcpvojv55hlia`,
         encryptedScore,
         inputProof
       );
@@ -161,7 +161,7 @@ export async function mintConfidentialNFT(
 
     const tx = await contract.mintWithConfidentialScore(
       userAddress,
-      `ipfs://trophy/${score}`,
+      `ipfs://bafybeif4pjtchxcmndfr2aqcalblp5go36e7ndb6kasjtrcpvojv55hlia`,
       encryptedScore,
       inputProof,
       { gasLimit }

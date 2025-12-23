@@ -7,7 +7,19 @@ export default defineConfig({
   server: {
     port: 3000,
     allowedHosts: ["localhost"],
-  },  
+  },
+  define: {
+    global: 'globalThis', // Важно для некоторых пакетов
+  },
+  resolve: {
+    alias: {
+      // Polyfill для Buffer
+      buffer: 'buffer/',
+    },
+  },
+  optimizeDeps: {
+    include: ['buffer'],
+  },
   build: {
     rollupOptions: {
       output: {
@@ -15,8 +27,21 @@ export default defineConfig({
           vendor: ['react', 'react-dom'],
           auth: ['@privy-io/react-auth'],
           ethers: ['ethers'],
-        }
-      }
-    }
-  }
+        },
+      },
+      plugins: [
+        // Необязательный фикс, если будет ошибка с Buffer.Buffer
+        // {
+        //   name: 'buffer-fix',
+        //   generateBundle() {
+        //     this.emitFile({
+        //       type: 'asset',
+        //       fileName: 'buffer-polyfill.js',
+        //       source: 'window.Buffer = window.Buffer || require("buffer").Buffer;',
+        //     });
+        //   },
+        // },
+      ],
+    },
+  },
 });
